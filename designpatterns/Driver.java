@@ -1,6 +1,8 @@
 package designpatterns;
 
 import designpatterns.builder.Student;
+import designpatterns.factory.Swiggy;
+import designpatterns.factory.Zomato;
 import designpatterns.singleton.House;
 import designpatterns.singleton.SecurityGuard;
 
@@ -9,6 +11,7 @@ public class Driver {
         builder();
         singleton1(); // Use-case: https://www.digitalocean.com/community/tutorials/java-singleton-design-pattern-best-practices-examples
         singleton2();
+        factory();
     }
     public static void builder() {
         Student student = new Student.Builder()
@@ -31,5 +34,14 @@ public class Driver {
         House house4 = new House(4);
         house3.printGuard(SecurityGuard.getInstance());
         house4.printGuard(SecurityGuard.getInstance());
+    }
+
+    public static void factory() {
+        Zomato zomato = new Zomato();
+        zomato.order("Salad");
+        zomato.order("Chole Bhature");
+        Swiggy swiggy = new Swiggy();
+        swiggy.order("Salad");
+        swiggy.order("Chole Bhature");
     }
 }

@@ -1,0 +1,9 @@
+Food
+ Types : Salad, Chole Bhature, etc
+
+
+Main()
+    Recipe()
+
+Restaurant
+    Order(food)
