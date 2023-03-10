@@ -1,5 +1,7 @@
 package designpatterns;
 
+import designpatterns.adapter.Audi;
+import designpatterns.adapter.MovableAdapterImpl;
 import designpatterns.builder.Student;
 import designpatterns.factory.Swiggy;
 import designpatterns.factory.Zomato;
@@ -22,6 +24,7 @@ public class Driver {
         factory();
         strategy();
         observer();
+        adapter();
     }
     public static void builder() {
         Student student = new Student.Builder()
@@ -77,5 +80,10 @@ public class Driver {
         StockMarket stockMarket = new StockMarket();
         stockMarket.addObserver(internet);
         stockMarket.notifyObservers("Market Crashed!");
+    }
+
+    public static void adapter() {
+        MovableAdapterImpl movableAdapterImpl = new MovableAdapterImpl(new Audi());
+        System.out.println(movableAdapterImpl.getSpeed());
     }
 }
