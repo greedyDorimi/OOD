@@ -3,6 +3,8 @@ package designpatterns;
 import designpatterns.adapter.Audi;
 import designpatterns.adapter.MovableAdapterImpl;
 import designpatterns.builder.Student;
+import designpatterns.chainofresponsibility.ATMDispenseChain;
+import designpatterns.chainofresponsibility.Currency;
 import designpatterns.factory.Swiggy;
 import designpatterns.factory.Zomato;
 import designpatterns.observer.*;
@@ -25,6 +27,7 @@ public class Driver {
         strategy();
         observer();
         adapter();
+        chainofresponsibility();
     }
     public static void builder() {
         Student student = new Student.Builder()
@@ -85,5 +88,10 @@ public class Driver {
     public static void adapter() {
         MovableAdapterImpl movableAdapterImpl = new MovableAdapterImpl(new Audi());
         System.out.println(movableAdapterImpl.getSpeed());
+    }
+
+    public static void chainofresponsibility() {
+        ATMDispenseChain atmDispenseChain = new ATMDispenseChain();
+        atmDispenseChain.getChain().dispense(new Currency(510));
     }
 }
