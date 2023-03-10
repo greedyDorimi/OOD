@@ -3,6 +3,7 @@ package designpatterns;
 import designpatterns.builder.Student;
 import designpatterns.factory.Swiggy;
 import designpatterns.factory.Zomato;
+import designpatterns.observer.*;
 import designpatterns.singleton.House;
 import designpatterns.singleton.SecurityGuard;
 import designpatterns.strategy.BubbleSort;
@@ -20,6 +21,7 @@ public class Driver {
         singleton2();
         factory();
         strategy();
+        observer();
     }
     public static void builder() {
         Student student = new Student.Builder()
@@ -59,5 +61,21 @@ public class Driver {
         sorter.sortNumbers(numbers, new BubbleSort());
         sorter.sortNumbers(numbers, new MergeSort());
         sorter.sortNumbers(numbers, new InsertionSort());
+    }
+
+    public static void observer() {
+        Internet internet = new Internet();
+        Radio radio = new Radio();
+        Newspaper newspaper = new Newspaper();
+
+        Railway railway = new Railway();
+        railway.addObserver(internet);
+        railway.addObserver(radio);
+        railway.addObserver(newspaper);
+        railway.notifyObservers("Train Derailed!");
+
+        StockMarket stockMarket = new StockMarket();
+        stockMarket.addObserver(internet);
+        stockMarket.notifyObservers("Market Crashed!");
     }
 }
