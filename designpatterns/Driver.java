@@ -5,6 +5,13 @@ import designpatterns.factory.Swiggy;
 import designpatterns.factory.Zomato;
 import designpatterns.singleton.House;
 import designpatterns.singleton.SecurityGuard;
+import designpatterns.strategy.BubbleSort;
+import designpatterns.strategy.InsertionSort;
+import designpatterns.strategy.MergeSort;
+import designpatterns.strategy.Sorter;
+
+import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Driver {
     public static void main(String[] args) {
@@ -12,6 +19,7 @@ public class Driver {
         singleton1(); // Use-case: https://www.digitalocean.com/community/tutorials/java-singleton-design-pattern-best-practices-examples
         singleton2();
         factory();
+        strategy();
     }
     public static void builder() {
         Student student = new Student.Builder()
@@ -43,5 +51,13 @@ public class Driver {
         Swiggy swiggy = new Swiggy();
         swiggy.order("Salad");
         swiggy.order("Chole Bhature");
+    }
+
+    public static void strategy() {
+        ArrayList<Integer> numbers = new ArrayList<>(Arrays.asList(7, 4, 3, 9, 2));
+        Sorter sorter = new Sorter();
+        sorter.sortNumbers(numbers, new BubbleSort());
+        sorter.sortNumbers(numbers, new MergeSort());
+        sorter.sortNumbers(numbers, new InsertionSort());
     }
 }
