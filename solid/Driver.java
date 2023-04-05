@@ -39,7 +39,7 @@ public class Driver {
     }
 
     public static void lisokv() {
-        List<Vehicle> vehicles= new ArrayList<Vehicle>();
+        List<Vehicle> vehicles = new ArrayList<Vehicle>();
         Car car = new Car();
         Bicycle bicycle = new Bicycle();
         vehicles.add(car);
